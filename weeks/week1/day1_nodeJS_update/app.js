@@ -5,6 +5,7 @@ const path = require("path");
 const os = require("os");
 const url = require("url");
 const crypto = require("crypto");
+const sayHello = require("./greetings");
 
 // ===== FS SECTION ===== //
 
@@ -67,3 +68,7 @@ const crypto = require("crypto");
 // const hash = crypto.createHash("sha256");
 // hash.update("Hello World");
 // console.log(hash.digest("hex"));
+
+// ===== MODULES =====//
+const message = sayHello("0xCrypt0nic");
+console.log(message);

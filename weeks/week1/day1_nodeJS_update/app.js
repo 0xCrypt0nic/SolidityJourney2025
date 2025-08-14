@@ -7,6 +7,7 @@ const url = require("url");
 const crypto = require("crypto");
 const sayHello = require("./greetings");
 const math = require("./math");
+const lodash = require("lodash");
 
 // ===== FS SECTION ===== //
 
@@ -71,8 +72,13 @@ const math = require("./math");
 // console.log(hash.digest("hex"));
 
 // ===== MODULES =====//
-const message = sayHello("0xCrypt0nic");
-console.log(message);
-console.log("Testing with math module");
-console.log(`5 + 10 = ${math.add(5, 10)}`);
-console.log(`5 - 4 = ${math.subtract(5, 4)}`);
+// const message = sayHello("0xCrypt0nic");
+// console.log(message);
+// console.log("Testing with math module");
+// console.log(`5 + 10 = ${math.add(5, 10)}`);
+// console.log(`5 - 4 = ${math.subtract(5, 4)}`);
+
+// ===== NPM PACKAGE MANAGER ===== //
+const numbers = [1, 2, 3, 4, 5];
+const reversed = lodash.reverse(numbers);
+console.log(reversed);

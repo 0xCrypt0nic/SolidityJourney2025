@@ -6,6 +6,7 @@ const os = require("os");
 const url = require("url");
 const crypto = require("crypto");
 const sayHello = require("./greetings");
+const math = require("./math");
 
 // ===== FS SECTION ===== //
 
@@ -72,3 +73,6 @@ const sayHello = require("./greetings");
 // ===== MODULES =====//
 const message = sayHello("0xCrypt0nic");
 console.log(message);
+console.log("Testing with math module");
+console.log(`5 + 10 = ${math.add(5, 10)}`);
+console.log(`5 - 4 = ${math.subtract(5, 4)}`);

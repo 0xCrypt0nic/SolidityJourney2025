@@ -100,10 +100,31 @@ const lodash = require("lodash");
 //   console.error("Error", err);
 // });
 
-const writableStream = fs.createWriteStream("./output2.txt");
-writableStream.write("Hello, ");
-writableStream.write("World !");
-writableStream.end();
-writableStream.on("finish", () => {
-  console.log("Finished writing to the file.");
-});
+// const writableStream = fs.createWriteStream("./output2.txt");
+// writableStream.write("Hello, ");
+// writableStream.write("World !");
+// writableStream.end();
+// writableStream.on("finish", () => {
+//   console.log("Finished writing to the file.");
+// });
+
+// ===== PIPING STREAM ===== //
+
+// const readableStream = fs.createReadStream("./example.txt");
+// const writableStream = fs.createWriteStream("./example-output.txt");
+
+// readableStream.pipe(writableStream);
+// writableStream.on("finish", () => {
+//   console.log("File copied successfully");
+// });
+
+// ===== READLINE MODULE ===== //
+// const readline = require("readline");
+// const readableStream = fs.createReadStream("./example.txt");
+// const rl = readline.createInterface({ input: readableStream });
+// rl.on("line", (line) => {
+//   console.log(`Line: ${line}`);
+// });
+// rl.on("close", () => {
+//   console.log("Finished processing the file");
+// });

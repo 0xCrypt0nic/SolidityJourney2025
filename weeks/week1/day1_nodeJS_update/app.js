@@ -128,3 +128,75 @@ const lodash = require("lodash");
 // rl.on("close", () => {
 //   console.log("Finished processing the file");
 // });
+
+// ===================== DIRECTORY ===================== //
+
+// 1. Create a Directory
+
+// fs.mkdir("newDirectory", (err) => {
+//   if (err) {
+//     return console.error(`Error creating directory: ${err}`);
+//   }
+//   console.log("Directory created successfully");
+// });
+
+// fs.mkdirSync("newDirectory2");
+// console.log("Directory created successfully");
+
+// 2. Reading a Directory
+
+// fs.readdir("./", (err, files) => {
+//   if (err) {
+//     return console.error(`Error reading directory: ${err}`);
+//   }
+//   console.log(`Directory content ${files}`);
+// });
+
+// const files = fs.readdirSync("./");
+// console.log(`Directory content ${files}`);
+
+// 3. Checking if Directory exists
+
+// console.log(
+//   fs.existsSync("newDirectory")
+//     ? "Directory exists"
+//     : "Directory does not exists"
+// );
+
+// 4. Removing a Directory
+
+// fs.rmdir("newDirectory2", (err) => {
+//   err
+//     ? console.error(`Error removing directory: ${err}`)
+//     : console.log("Directory removed successfully");
+// });
+
+// If directory is not empty
+// fs.rm("newDirectory2", { recursive: true }, (err) => {
+//   err
+//     ? console.error(`Error removing directory: ${err}`)
+//     : console.log("Directory removed successfully");
+// });
+
+// 5. Renaming a Directory
+
+// fs.rename("./folder1", "./folder2", (err) => {
+//   err
+//     ? console.error(`Error renaming directory: ${err}`)
+//     : console.log("Directory renamed successfully");
+// });
+
+// 6. Getting Directory Stats
+
+// fs.stat("../day1_nodeJS_update", (err, stats) => {
+//   err ? console.error(err) : console.log("is directory :", stats.isDirectory());
+// });
+
+// 7. Watching a Directory
+
+// fs.watch("../day1_nodeJS_update", (eventType, filename) => {
+//   console.log(`Event: ${eventType}`);
+//   if (filename) {
+//     console.log(`FileName: ${filename}`);
+//   }
+// });

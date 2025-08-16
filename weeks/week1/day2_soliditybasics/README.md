@@ -25,6 +25,6 @@
    - Follow Lesson 1, which covers:
      - **Pragma**: The `pragma solidity ^0.8.0;` directive to specify the Solidity version.
      - **Contract Structure**: How to define a contract (e.g., `contract MyContract {}`).
-     - **Functions**: Writing basic functions (e.g., `function sayHello() public returns (string memory)`).
+     - **Functions**: Writing basic functions.
    - Complete the interactive coding exercises in the browser (e.g., creating a simple contract).
    - Expected outcome: Understand what a smart contract is and write a basic one in CryptoZombies.

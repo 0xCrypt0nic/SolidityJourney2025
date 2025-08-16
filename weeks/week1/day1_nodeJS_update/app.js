@@ -9,7 +9,7 @@ const sayHello = require("./greetings");
 const math = require("./math");
 const lodash = require("lodash");
 
-// ===== FS SECTION ===== //
+// ==================== FS SECTION ==================== //
 
 // fs.readFile("./example.txt", "utf-8", (err, data) => {
 //   if (err) {
@@ -30,7 +30,7 @@ const lodash = require("lodash");
 //   console.log('File written successfully');
 // });
 
-// ===== HTTP SECTION ===== //
+// ==================== HTTP SECTION ==================== //
 
 // const server = http.createServer((req, res) => {
 //   res.statusCode = 200;
@@ -42,7 +42,7 @@ const lodash = require("lodash");
 //   console.log("Server runing at http://localhost:3000");
 // });
 
-// ===== PATH SECTION ===== //
+// ==================== PATH SECTION ==================== //
 
 // const directory = "./user/local";
 // const fileName = "example.tkt";
@@ -51,39 +51,39 @@ const lodash = require("lodash");
 
 // console.log(fullPath);
 
-// ===== OS SECTION ===== //
+// ==================== OS SECTION ==================== //
 
 // console.log("Platform : ", os.platform());
 // console.log("CPU Arch : ", os.arch());
 // console.log("Total Memory : ", os.totalmem());
 // console.log("Free Memory : ", os.freemem());
 
-// ===== URL SECTION ===== //
+// ==================== URL SECTION ==================== //
 
 // const myURL = new URL("https://example.com:8080/path/name?query=hello#hash");
 // console.log("Host : ", myURL.host);
 // console.log("PathName : ", myURL.pathname);
 // console.log("Search Params : ", myURL.searchParams.get("query"));
 
-// ===== CRYPTO SECTION ===== //
+// ==================== CRYPTO SECTION ==================== //
 
 // const hash = crypto.createHash("sha256");
 // hash.update("Hello World");
 // console.log(hash.digest("hex"));
 
-// ===== MODULES =====//
+// ==================== MODULES ====================
 // const message = sayHello("0xCrypt0nic");
 // console.log(message);
 // console.log("Testing with math module");
 // console.log(`5 + 10 = ${math.add(5, 10)}`);
 // console.log(`5 - 4 = ${math.subtract(5, 4)}`);
 
-// ===== NPM PACKAGE MANAGER ===== //
+// ==================== NPM PACKAGE MANAGER ==================== //
 // const numbers = [1, 2, 3, 4, 5];
 // const reversed = lodash.reverse(numbers);
 // console.log(reversed);
 
-// ===== STREAM ===== //
+// ==================== STREAM ==================== //
 // const readableStream = fs.createReadStream("./example.txt", {
 //   encoding: "utf-8",
 // });
@@ -108,7 +108,7 @@ const lodash = require("lodash");
 //   console.log("Finished writing to the file.");
 // });
 
-// ===== PIPING STREAM ===== //
+// ==================== PIPING STREAM ==================== //
 
 // const readableStream = fs.createReadStream("./example.txt");
 // const writableStream = fs.createWriteStream("./example-output.txt");
@@ -118,7 +118,7 @@ const lodash = require("lodash");
 //   console.log("File copied successfully");
 // });
 
-// ===== READLINE MODULE ===== //
+// ==================== READLINE MODULE ==================== //
 // const readline = require("readline");
 // const readableStream = fs.createReadStream("./example.txt");
 // const rl = readline.createInterface({ input: readableStream });

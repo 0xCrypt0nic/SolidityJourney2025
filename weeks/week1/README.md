@@ -9,16 +9,17 @@
 
 ---
 
-## Day 1: Tuesday, 12 August 2025 (2 hours) - Node.js Basics Refresher
+## Day 1: Tuesday, 12 August 2025 (2.5 hours) - Node.js Basics Refresher
 
 **Objective**: Reinforce Node.js fundamentals to prepare for blockchain tools like Hardhat.
 
 - **Tasks**:
-  1. Watch the [Node.js Ultimate Beginner’s Guide in 7 Easy Steps](https://www.youtube.com/watch?v=yGl3f0xTl_0) (1h30):
+  1. Watch the [Node JS Tutorial For Beginners 2025](https://www.youtube.com/watch?v=yGl3f0xTl_0) (2h30) from GreatStack:
      - Covers Node.js installation, running scripts, modules, npm, and basic server creation.
      - Follow along by installing Node.js (if not already done) and running the example scripts in a terminal.
   2. Practice by creating a simple script (e.g., a "Hello World" server using the `http` module) (30 min).
-  3. Take brief notes in Markdown on key concepts (e.g., npm, modules, async nature of Node.js).
+  3. Take brief notes in Markdown on key concepts (e.g., npm, modules).
 - **Resources**:
-  - [Node.js Ultimate Beginner’s Guide in 7 Easy Steps](https://www.youtube.com/watch?v=yGl3f0xTl_0) (Perfect video from GreatStack).
+  - [Node JS Tutorial For Beginners 2025](https://www.youtube.com/watch?v=yGl3f0xTl_0) (Perfect video from GreatStack).
   - [Node.js Official Docs - Getting Started](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs) (For reference).
+  - [NodeJS Cheatsheet](https://github.com/LeCoupa/awesome-cheatsheets/blob/master/backend/node.js) Writed by LeCoupa ([Github](https://github.com/LeCoupa)).

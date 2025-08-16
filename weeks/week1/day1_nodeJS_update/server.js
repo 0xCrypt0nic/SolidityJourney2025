@@ -1,5 +1,6 @@
 const http = require("http");
 const url = require("url");
+const queryString = require("querystring");
 
 // const server = http.createServer((req, res) => {
 //   if (req.method === "GET" && req.url === "/") {
@@ -57,15 +58,53 @@ const url = require("url");
 
 // 2. Handling Dynamic Routes (website.com)
 
+// const server = http.createServer((req, res) => {
+//   const { pathname } = url.parse(req.url);
+//   if (pathname.startsWith("/user/")) {
+//     const userId = pathname.split("/")[2];
+//     res.writeHead(200, { "content-type": "text/plain" });
+//     res.end(`User ID : ${userId}`);
+//   } else {
+//     res.writeHead(404, { "content-type": "text/plain" });
+//     res.end("Route Not Found");
+//   }
+// });
+
+// 3. Middleware-like Functionality
+// Middleware Function for logging requests
+// function logRequest(req, res, next) {
+//   console.log(`${req.method} request made to ${req.url}`);
+//   next(req, res);
+// }
+
+// const server = http.createServer((req, res) => {
+//   logRequest(req, res, (req, res) => {
+//     const { pathname } = url.parse(req.url);
+//     if (pathname.startsWith("/user/")) {
+//       const userId = pathname.split("/")[2];
+//       res.writeHead(200, { "content-type": "text/plain" });
+//       res.end(`User ID : ${userId}`);
+//     } else {
+//       res.writeHead(404, { "content-type": "text/plain" });
+//       res.end("Route Not Found");
+//     }
+//   });
+// });
+
+// 4. Handling URL-encoded Data (Form Submissions)
+
 const server = http.createServer((req, res) => {
-  const { pathname } = url.parse(req.url);
-  if (pathname.startsWith("/user/")) {
-    const userId = pathname.split("/")[2];
-    res.writeHead(200, { "content-type": "text/plain" });
-    res.end(`User ID : ${userId}`);
-  } else {
-    res.writeHead(404, { "content-type": "text/plain" });
-    res.end("Route Not Found");
+  if (req.method === "POST" && req.url === "/submit") {
+    let data = "";
+    req.on("data", (chunk) => {
+      data += chunk;
+    });
+
+    req.on("end", () => {
+      const parsedData = queryString.parse(data);
+      res.writeHead(200, { "content-type": "application/json" });
+      res.end(JSON.stringify({ message: "Form data received", parsedData }));
+    });
   }
 });
 

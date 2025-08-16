@@ -201,6 +201,57 @@ const lodash = require("lodash");
 //   }
 // });
 
-// ===================== HTTP ===================== //
+// ==================== EVENT EMITTERS ==================== //
 
-// 1. Setting an HTTP Server
+const EventEmitter = require("events");
+
+const emitter = new EventEmitter();
+
+// Registering a event listener
+// emitter.on("test1", () => {
+//   console.log("An event has occured");
+// });
+
+// emitter.emit("test1");
+
+// 1. Adding Multiple events
+
+// emitter.on("test1", () => {
+//   console.log("An event has occured in test1");
+// });
+
+// emitter.on("test1", () => {
+//   console.log("An event has occured in test2");
+// });
+
+// emitter.emit("test1");
+
+// 2. Removing event listener
+
+// emitter.on("test1", () => {
+//   console.log("An event has occured in test1");
+// });
+
+// emitter.emit("test1");
+
+// emitter.removeListener("test1");
+
+// emitter.emit("test1");
+
+// 3. Handling error event
+
+emitter.on("test1", () => {
+  console.log("An event has occured in test1");
+});
+
+emitter.on("error", (err) => {
+  console.error("Error event : ", err.message);
+});
+
+try {
+  emitter.emit("test1");
+  emitter.removeListener("test1");
+  emitter.emit("test1");
+} catch (error) {
+  emitter.emit("error", error);
+}

@@ -93,20 +93,20 @@ const queryString = require("querystring");
 
 // 4. Handling URL-encoded Data (Form Submissions)
 
-const server = http.createServer((req, res) => {
-  if (req.method === "POST" && req.url === "/submit") {
-    let data = "";
-    req.on("data", (chunk) => {
-      data += chunk;
-    });
+// const server = http.createServer((req, res) => {
+//   if (req.method === "POST" && req.url === "/submit") {
+//     let data = "";
+//     req.on("data", (chunk) => {
+//       data += chunk;
+//     });
 
-    req.on("end", () => {
-      const parsedData = queryString.parse(data);
-      res.writeHead(200, { "content-type": "application/json" });
-      res.end(JSON.stringify({ message: "Form data received", parsedData }));
-    });
-  }
-});
+//     req.on("end", () => {
+//       const parsedData = queryString.parse(data);
+//       res.writeHead(200, { "content-type": "application/json" });
+//       res.end(JSON.stringify({ message: "Form data received", parsedData }));
+//     });
+//   }
+// });
 
 // const server = http.createServer((req, res) => {
 //   if (req.method === "GET" && req.url.startsWith("/search")) {

@@ -9,7 +9,7 @@
 
 ---
 
-## Day 1: Tuesday, 12 August 2025 (2.5 hours) - Node.js Basics Refresher
+## Day 1: Node.js Basics Refresher
 
 **Objective**: Reinforce Node.js fundamentals to prepare for blockchain tools like Hardhat.
 
@@ -23,3 +23,41 @@
   - [Node JS Tutorial For Beginners 2025](https://www.youtube.com/watch?v=yGl3f0xTl_0) (Perfect video from GreatStack).
   - [Node.js Official Docs - Getting Started](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs) (For reference).
   - [NodeJS Cheatsheet](https://github.com/LeCoupa/awesome-cheatsheets/blob/master/backend/node.js) Writed by LeCoupa ([Github](https://github.com/LeCoupa)).
+
+---
+
+## Day 2: Solidity Basics and Hardhat Setup
+
+**Objective**: Learn Solidity fundamentals and configure the development environment.
+
+### Introduction to Solidity Basics
+
+- **Tasks**:
+  1. Access [CryptoZombies](https://cryptozombies.io/) and create an account if needed.
+  2. Complete Lessons 1-2 of "Solidity Basics":
+     - Lesson 1: Introduction to smart contracts (pragma, contract structure, functions).
+     - Lesson 2: Data types (uint, string, address) and state variables.
+  3. Work through the interactive coding exercises in CryptoZombies.
+  4. Take simple notes in Markdown on:
+     - What is a smart contract?
+     - Key differences with languages like C# (e.g., static types, no classes).
+- **Resources**:
+  - [CryptoZombies - Solidity Basics](https://cryptozombies.io/en/course) (free, beginner-friendly).
+  - [DappUniversity Solidity Tutorial for Beginners](https://www.dappuniversity.com/articles/solidity-tutorial) (simple video).
+
+### Setting Up Hardhat and MetaMask
+
+- **Tasks**:
+  1. Ensure Node.js (version 18+) is installed (from your refresher).
+  2. Install Hardhat:
+     - Run `npm install --global hardhat` in a terminal.
+     - Create a project: `mkdir blockchain-training && cd blockchain-training && npm init -y`.
+     - Run `npx hardhat` and select "Create a basic sample project".
+  3. Test the setup by compiling the example contract (Lock.sol) with `npx hardhat compile`.
+  4. Install [MetaMask](https://metamask.io/) browser extension:
+     - Create a wallet and securely save the recovery phrase.
+     - Configure the Sepolia test network.
+     - Get test ETH from [Google Sepolia Faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia).
+- **Resources**:
+  - [Hardhat - Getting Started](https://hardhat.org/hardhat-runner/docs/getting-started) (Quick Start section).
+  - [MetaMask - Getting Started](https://docs.metamask.io/guide/getting-started.html).

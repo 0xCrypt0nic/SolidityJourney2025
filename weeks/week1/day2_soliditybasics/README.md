@@ -15,13 +15,13 @@
 
 ### Tasks
 
-1. **Access CryptoZombies (5 min)**:
+1. **Access CryptoZombies**:
 
    - Go to [CryptoZombies](https://cryptozombies.io/) and create an account (or log in if already created).
    - Navigate to the "Solidity Basics" course and start Lesson 1.
    - Tip: Use Chrome for the best experience, and keep a notepad or text editor open for notes.
 
-2. **Complete Lesson 1: Introduction to Smart Contracts (45 min)**:
+2. **Complete Lesson 1: Introduction to Smart Contracts**:
 
    - Follow Lesson 1, which covers:
      - **Pragma**: The `pragma solidity ^0.8.0;` directive to specify the Solidity version.
@@ -30,7 +30,7 @@
    - Complete the interactive coding exercises in the browser (e.g., creating a simple contract).
    - Expected outcome: Understand what a smart contract is and write a basic one in CryptoZombies.
 
-3. **Complete Lesson 2: Data Types and State Variables (45 min)**:
+3. **Complete Lesson 2: Data Types and State Variables**:
 
    - Follow Lesson 2, focusing on:
      - **Data Types**: `uint` (unsigned integers), `string`, `address`.
@@ -38,7 +38,7 @@
    - Complete the exercises, which involve creating variables and simple functions to manipulate them.
    - Expected outcome: Create a contract with state variables and understand their role.
 
-4. **Take Notes in Markdown (5 min)**:
+4. **Take Notes in Markdown**:
    - Open a text editor (e.g., VS Code) and create `/week1/notes/solidity-basics.md` in your `SolidityJourney2025` repository.
    - Write brief notes (in English for GitHub visibility):
      - What is a smart contract? (A program stored on the blockchain, executed automatically.)
@@ -68,3 +68,31 @@
 ## Second Session: Setting Up Hardhat and MetaMask
 
 **Goal**: Configure a development environment for Ethereum smart contracts using Hardhat and MetaMask, leveraging your recent Node.js knowledge.
+
+### Tasks
+
+1. **Verify Node.js Installation**:
+
+   - Open a terminal (e.g., Command Prompt, Terminal, or VS Code integrated terminal).
+   - Run `node -v` and `npm -v` to confirm Node.js (version 18+) and npm are installed (from your refresher on 12 August).
+   - If not installed, download from [nodejs.org](https://nodejs.org/en/) and follow the installation prompts.
+   - Tip: If you hit issues, revisit [freeCodeCamp Node.js](https://www.freecodecamp.org/news/node-js-tutorial-for-beginners/).
+
+2. **Install Hardhat**:
+
+   - In your terminal, install Hardhat globally: `npm install --global hardhat`.
+   - Create a new project directory:
+     - Run `mkdir blockchain-training && cd blockchain-training`.
+     - Initialize a Node.js project: `npm init -y` (creates `package.json`).
+   - Set up Hardhat:
+     - Run `npx hardhat` in the `blockchain-training` directory.
+     - Select **"Create a basic sample project"** when prompted (this sets up a simple JavaScript project with an example contract).
+     - Follow the prompts to install dependencies (e.g., `npm install` if prompted).
+   - Expected outcome: A project folder with `contracts/`, `scripts/`, and `hardhat.config.js`.
+
+3. **Test Hardhat Setup**:
+   - Navigate to the `contracts/` folder and open `Lock.sol` (the example contract created by Hardhat).
+   - Compile the contract: Run `npx hardhat compile` in the terminal.
+   - Check for a successful compilation (look for an `artifacts/` folder and no errors in the terminal).
+   - If errors occur (e.g., missing dependencies), run `npm install` again or check [Hardhat Troubleshooting](https://hardhat.org/hardhat-runner/docs/troubleshooting).
+   - Take a screenshot of the terminal showing `npx hardhat compile` success.

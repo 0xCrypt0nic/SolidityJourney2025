@@ -61,3 +61,35 @@
 - **Resources**:
   - [Hardhat - Getting Started](https://hardhat.org/hardhat-runner/docs/getting-started) (Quick Start section).
   - [MetaMask - Getting Started](https://docs.metamask.io/guide/getting-started.html).
+
+---
+
+## Day 3: First Smart Contract and Visibility
+
+**Objective**: Write and deploy a simple smart contract, understand visibility in Solidity.
+
+### First Smart Contract with Remix
+
+- **Tasks**:
+  1. Open [Remix IDE](https://remix.ethereum.org/) in your browser.
+  2. Create a simple smart contract to manage a counter, learning about contract creation and deployment.
+  3. Compile the contract in Remix (Solidity Compiler tab).
+  4. Deploy to Sepolia using MetaMask (Deploy & Run Transactions tab), ensuring test ETH is available.
+  5. Test the contract’s functions (e.g., increment, decrement).
+- **Resources**:
+  - [Remix IDE - Quick Start](https://remix-ide.readthedocs.io/en/latest/create_deploy.html).
+  - [Google Sepolia Faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia).
+- **Livrable**: Deployed contract.
+
+### Understanding Solidity Types and Visibility
+
+- **Tasks**:
+  1. Read the Solidity documentation on data types (uint, address, string) and visibility (public, private).
+  2. Create a contract in Remix to experiment with visibility modifiers.
+  3. Test the contract to see how visibility affects access (e.g., trying to access a private variable).
+  4. Take notes in Markdown on visibility use cases (e.g., public for external access).
+- **Resources**:
+  - [Solidity - Types](https://docs.soliditylang.org/en/latest/types.html).
+  - [Solidity - Visibility](https://docs.soliditylang.org/en/latest/contracts.html#visibility-and-getters).
+  - [Solidity by Example - First App](https://solidity-by-example.org/first-app/).
+- **Livrable**: Test contract and visibility notes in Markdown.

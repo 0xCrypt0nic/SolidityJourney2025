@@ -75,19 +75,7 @@
     - Take a screenshot of the deployment (Remix’s "Deployed Contracts" section) or MetaMask transaction confirmation.
 
 5.  **Document the Process**:
-    - Create a Markdown file `/week1/contracts/Counter_README.md` in your `SolidityJourney2025` repository.
-    - Write a brief summary (in English for GitHub visibility):
-      - Steps to write and deploy the contract.
-      - Outcome of testing `increment`, `decrement`, and `getCount`.
-      - Include the contract address from Remix.
-    - Example:
-      ```
-      # Counter.sol Deployment
-      - Wrote a `Counter.sol` smart contract in Remix IDE.
-      - Compiled with Solidity version 0.8.x.
-      - Deployed on Sepolia test network via MetaMask (address: 0x...).
-      - Tested `increment`, `decrement`, and `getCount` functions successfully.
-      ```
+    - Create a Markdown file `/week1/notes/Counter.md` in your `SolidityJourney2025` repository.
 
 **Resources**:
 
@@ -98,3 +86,70 @@
 
 - `Counter.sol` deployed on Sepolia.
 - Note file `/week1/notes/Counter.md`.
+
+---
+
+## Session 2 - Understanding Solidity Types and Visibility
+
+**Goal**: Learn about Solidity data types and visibility modifiers through documentation and a simple contract.
+
+### Tasks
+
+1. **Read Solidity Documentation**:
+
+   - Open the [Solidity Documentation](https://docs.soliditylang.org/en/latest/) in your browser.
+   - Read the **Types** section ([https://docs.soliditylang.org/en/latest/types.html](https://docs.soliditylang.org/en/latest/types.html)):
+     - Focus on `uint` (unsigned integers), `address` (Ethereum addresses), and `string` (text).
+     - Note: `uint` is used for numbers (e.g., `uint256 myNumber = 100;`), `address` for wallet/contract addresses, and `string` for text data.
+   - Read the **Visibility and Getters** section ([https://docs.soliditylang.org/en/latest/contracts.html#visibility-and-getters](https://docs.soliditylang.org/en/latest/contracts.html#visibility-and-getters)):
+     - Understand visibility modifiers: `public` (accessible everywhere), `private` (only within the contract).
+     - Example: A `public` variable auto-generates a getter function; `private` restricts access.
+   - Take brief notes in a text editor (e.g., VS Code) for the next step.
+
+2. **Create a Visibility Test Contract**:
+
+   - In Remix, create a new file `VisibilityTest.sol`:
+
+     ```
+     // SPDX-License-Identifier: MIT
+     pragma solidity ^0.8.0;
+
+     contract VisibilityTest {
+         uint256 public publicVar = 1;
+         uint256 private privateVar = 2;
+
+         function setPrivateVar(uint256 _value) public {
+             privateVar = _value;
+         }
+
+         function getPrivateVar() public view returns (uint256) {
+             return privateVar;
+         }
+     }
+     ```
+
+   - Understand the code:
+     - `publicVar`: Accessible externally, auto-generates a getter.
+     - `privateVar`: Only accessible within the contract, but `getPrivateVar` allows controlled access.
+   - Compile the contract in Remix (Solidity Compiler tab, version 0.8.x).
+   - Deploy on Sepolia (same steps as `Counter.sol`).
+   - Test in Remix:
+     - Call `publicVar` directly (returns 1).
+     - Try accessing `privateVar` directly (should fail due to `private`).
+     - Call `setPrivateVar(5)` and `getPrivateVar` to confirm the value updates to 5.
+   - Take a screenshot of the Remix interface showing test results.
+
+3. **Document Types and Visibility**:
+
+   - Create `/week1/notes/visibility.md` in your repository.
+
+**Resources**:
+
+- [Solidity - Types](https://docs.soliditylang.org/en/latest/types.html) (official docs for types).
+- [Solidity - Visibility](https://docs.soliditylang.org/en/latest/contracts.html#visibility-and-getters) (visibility explanation).
+- [Solidity by Example - First App](https://solidity-by-example.org/first-app/) (simple contract examples).
+
+**Livrable**:
+
+- `VisibilityTest.sol` deployed on Sepolia.
+- Markdown file `/week1/notes/visibility.md`.

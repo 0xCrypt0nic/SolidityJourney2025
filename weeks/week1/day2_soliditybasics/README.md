@@ -95,4 +95,15 @@
    - Compile the contract: Run `npx hardhat compile` in the terminal.
    - Check for a successful compilation (look for an `artifacts/` folder and no errors in the terminal).
    - If errors occur (e.g., missing dependencies), run `npm install` again or check [Hardhat Troubleshooting](https://hardhat.org/hardhat-runner/docs/troubleshooting).
-   - Take a screenshot of the terminal showing `npx hardhat compile` success.
+   
+4. **Install and Configure MetaMask**:
+   - Install the [MetaMask](https://metamask.io/) browser extension (Chrome/Firefox recommended).
+   - Create a new wallet:
+     - Follow the setup wizard and securely save your recovery phrase (write it down offline, never share it).
+   - Add the Sepolia Testnet on your Metamask :
+     - Visit [Chainlist.org](https://chainlist.org/).
+     - Check "Include Testnets" checkbox and search "Sepolia Ethereum Testnet".
+   - Get test ETH:
+     - Visit [Google Sepolia Faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia).
+     - Enter your MetaMask wallet address to request test ETH (may take a few minutes).
+     - Confirm you have 0.05 ETH in MetaMask. (0.05 every 24h)

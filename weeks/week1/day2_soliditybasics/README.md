@@ -9,7 +9,7 @@
 
 ---
 
-## First Session - Introduction to Solidity Basics
+## First Session: Introduction to Solidity Basics
 
 **Goal**: Learn the core concepts of Solidity through interactive exercises, focusing on smart contract structure and basic data types.
 
@@ -62,3 +62,9 @@
 
 - Completed Lessons 1-2 in CryptoZombies.
 - Markdown file `/week1/notes/solidity-basics.md` with notes on smart contracts and data types.
+
+---
+
+## Second Session: Setting Up Hardhat and MetaMask
+
+**Goal**: Configure a development environment for Ethereum smart contracts using Hardhat and MetaMask, leveraging your recent Node.js knowledge.

@@ -1,4 +1,4 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.5.00;
 
 contract ZombieFactory {
     event NewZombie(uint zombieId, string name, uint dna);
@@ -16,7 +16,8 @@ contract ZombieFactory {
     mapping(uint => address) public zombieToOwner;
     mapping(address => uint) ownerZombieCount;
 
-    function _createZombie(string _name, uint _dna) private {
+    // éditer la définition de fonction ci-dessous
+    function _createZombie(string _name, uint _dna) internal {
         uint id = zombies.push(Zombie(_name, _dna)) - 1;
         zombieToOwner[id] = msg.sender;
         ownerZombieCount[msg.sender]++;

@@ -136,8 +136,7 @@
    - Test in Remix:
      - Call `publicVar` directly (returns 1).
      - Try accessing `privateVar` directly (should fail due to `private`).
-     - Call `setPrivateVar(5)` and `getPrivateVar` to confirm the value updates to 5.
-   - Take a screenshot of the Remix interface showing test results.
+     - Call `setPrivateVar(5)` and `getPrivateVar` to confirm the value updates to 3.
 
 3. **Document Types and Visibility**:
 

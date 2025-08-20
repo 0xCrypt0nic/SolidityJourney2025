@@ -25,4 +25,3 @@
 - Complete all exercises, such as:
   - Creating a mapping to track zombie ownership (e.g., `mapping(address => uint) zombieOwner`).
   - Using `msg.sender` to associate a zombie with the caller’s address.
-- Take a screenshot of a completed mapping exercise.

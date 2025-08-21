@@ -25,3 +25,14 @@
 - Complete all exercises, such as:
   - Creating a mapping to track zombie ownership (e.g., `mapping(address => uint) zombieOwner`).
   - Using `msg.sender` to associate a zombie with the caller’s address.
+
+### Solidity Documentation - Structs & Mappings
+
+**Read Solidity Docs**:
+
+- Read [Solidity - Structs](https://docs.soliditylang.org/en/latest/types.html#structs) to understand how structs group variables and their use in contracts.
+- Read [Solidity - Mappings](https://docs.soliditylang.org/en/latest/types.html#mapping-types) to learn about non-iterable key-value pairs and default values.
+- Key points to note:
+  - Structs are stored in `storage` (blockchain) or `memory` (temporary).
+  - Mappings initialize all keys to zero/empty and cannot be iterated.
+  - Example: `mapping(address => uint) public balances` maps addresses to balances.

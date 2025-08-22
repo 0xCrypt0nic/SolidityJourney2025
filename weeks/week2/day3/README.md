@@ -69,4 +69,4 @@
 
 ### Livrable
 
-- Passing tests in `/week2/test/Voting.test.js`.
+- Passing tests in `/week2/day3/VotingProject/test/Voting-test.ts`.

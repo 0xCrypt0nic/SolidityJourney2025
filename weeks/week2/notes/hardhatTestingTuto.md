@@ -9,4 +9,4 @@ Was a good xp to see how test is used in solidity.
 
 ### Livrable
 
-![4/4 Tests passed](./HardhatTestingTuto.png)
+![4/4 Tests passed](./img/HardhatTestingTuto.png)

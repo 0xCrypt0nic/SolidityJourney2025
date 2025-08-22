@@ -16,12 +16,13 @@
   - Accessing array elements (e.g., `zombies[0].name`).
 - Take a screenshot of a completed exercise showing the code and success message in the CryptoZombies editor.
 
-**CryptoZombies Lesson 4: Mappings and Addresses**:
+**CryptoZombies Lesson 4: Payable & modifier**:
 
 - Start Lesson 4.
 - Learn:
-  - **Mappings**: Key-value stores (e.g., `mapping(address => uint) balances`).
   - **msg.sender**: Global variable to get the caller’s Ethereum address.
+  - **Payable Functions**: How to accept ETH on your contract.
+  - **modifier**: Create specific function like onlyOwner to use it directly on other functions definition.
 - Complete all exercises, such as:
   - Creating a mapping to track zombie ownership (e.g., `mapping(address => uint) zombieOwner`).
   - Using `msg.sender` to associate a zombie with the caller’s address.

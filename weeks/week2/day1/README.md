@@ -37,3 +37,40 @@
   - Structs are stored in `storage` (blockchain) or `memory` (temporary).
   - Mappings initialize all keys to zero/empty and cannot be iterated.
   - Example: `mapping(address => uint) public balances` maps addresses to balances.
+
+### Practice in Remix
+
+- Open [Remix IDE](https://remix.ethereum.org/) and create `ZombieFactory.sol`:
+
+  ```
+  // SPDX-License-Identifier: MIT
+  pragma solidity ^0.8.0;
+
+  contract ZombieFactory {
+      struct Zombie {
+          uint id;
+          string name;
+          uint level;
+      }
+
+      Zombie[] public zombies;
+      mapping(address => uint) public zombieOwner;
+
+      function createZombie(string memory _name, uint _level) public {
+          uint newId = zombies.length;
+          zombies.push(Zombie(newId, _name, _level));
+          zombieOwner[msg.sender] = newId;
+      }
+
+      function getZombie(uint _id) public view returns (string memory, uint) {
+          require(_id < zombies.length, "Invalid zombie ID");
+          return (zombies[_id].name, zombies[_id].level);
+      }
+  }
+  ```
+
+- Compile (version 0.8.x) and deploy on Sepolia via MetaMask.
+- Test:
+  - Call `createZombie("Grok", 1)` and verify the zombie is added to `zombies` array.
+  - Check `zombieOwner` mapping for your address.
+  - Call `getZombie(0)` to retrieve zombie details.

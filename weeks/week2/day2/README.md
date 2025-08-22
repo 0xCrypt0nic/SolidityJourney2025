@@ -61,13 +61,12 @@
   ```
 
 - Compile with Solidity version 0.8.x.
-- Deploy on Sepolia test network via MetaMask (ensure test ETH from [Sepolia Faucet](https://sepoliafaucet.com/)).
+- Deploy on Sepolia test network via MetaMask.
 - Test:
   - Initialize with `["Alice", "Bob"]` in the constructor.
   - Call `vote(0)` and approve the transaction in MetaMask.
   - Check `getCandidate(0)` to confirm Alice’s vote count is 1.
   - Verify the `VoteCast` event in Remix’s "Transaction Log" (shows voter address and candidate ID).
-- Take a screenshot of the Remix interface showing deployment or the event log.
 
 ### Resources
 

@@ -39,5 +39,5 @@
 
 **Resources**:
 
-- [Hardhat - Testing Contracts](https://hardhat.org/hardhat-runner/docs/guides/test-contracts).
+- [Hardhat - Testing Contracts](https://v2.hardhat.org/hardhat-runner/docs/guides/test-contracts).
 - [Mocha Docs](https://mochajs.org/) (basic overview).

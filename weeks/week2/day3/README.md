@@ -6,7 +6,7 @@
 
 **Learn Hardhat Testing**:
 
-- Read [Hardhat - Testing Contracts](https://hardhat.org/hardhat-runner/docs/guides/test-contracts) to understand testing with Mocha and Chai.
+- Read [Hardhat - Testing Contracts](https://v2.hardhat.org/hardhat-runner/docs/guides/test-contracts) to understand testing with Mocha and Chai.
 - Key points:
   - **Mocha**: Test framework for organizing tests (e.g., `describe`, `it`).
   - **Chai**: Assertion library for checking results (e.g., `expect`).
@@ -62,7 +62,7 @@
 
 ### Resources
 
-- [Hardhat - Testing Contracts](https://hardhat.org/hardhat-runner/docs/guides/test-contracts) (testing guide).
+- [Hardhat - Testing Contracts](https://v2.hardhat.org/hardhat-runner/docs/guides/test-contracts) (testing guide).
 - [Mocha Docs](https://mochajs.org/) (test framework overview).
 - [Chai Docs](https://www.chaijs.com/) (assertion library reference).
 - [Ethers.js Docs](https://docs.ethers.io/v5/) (contract interaction in tests).

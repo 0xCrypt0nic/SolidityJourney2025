@@ -8,6 +8,7 @@ Created the Voting contratct and Remix and play with different functions.
 - Voting : [0xc80f99409c1b0117296602a564cbe4854deaccea7d5d24f367099c686729dc74](https://sepolia.etherscan.io/address/0x4d6c6002116f18810ea466e25a794866903c17db)
 
 Log of event :
+
 ![Log of event](../day2/Log.png)
 
 Use getCandidate function to have the count of vote for the candidate in parameter.

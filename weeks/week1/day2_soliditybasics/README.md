@@ -38,20 +38,6 @@
    - Complete the exercises, which involve creating variables and simple functions to manipulate them.
    - Expected outcome: Create a contract with state variables and understand their role.
 
-4. **Take Notes in Markdown**:
-   - Open a text editor (e.g., VS Code) and create `/week1/notes/solidity-basics.md` in your `SolidityJourney2025` repository.
-   - Write brief notes (in English for GitHub visibility):
-     - What is a smart contract? (A program stored on the blockchain, executed automatically.)
-     - Key differences with C# (e.g., no classes, blockchain storage, static typing).
-     - Examples of data types and their syntax (e.g., `uint`, `string`).
-   - Example note structure:
-     ```
-     # Solidity Basics Notes
-     - **Smart Contract**: Code on the blockchain, runs when called.
-     - **Data Types**: `uint` for numbers, `string` for text, `address` for Ethereum accounts.
-     - **Compared to C#**: No object-oriented classes, focused on blockchain state.
-     ```
-
 **Resources**:
 
 - [CryptoZombies - Solidity Basics](https://cryptozombies.io/en/course) (free, interactive, beginner-friendly).
@@ -91,6 +77,7 @@
    - Expected outcome: A project folder with `contracts/`, `scripts/`, and `hardhat.config.js`.
 
 3. **Test Hardhat Setup**:
+
    - Navigate to the `contracts/` folder and open `Lock.sol` (the example contract created by Hardhat).
    - Compile the contract: Run `npx hardhat compile` in the terminal.
    - Check for a successful compilation (look for an `artifacts/` folder and no errors in the terminal).
@@ -109,6 +96,7 @@
      - Confirm you have 0.05 ETH in MetaMask. (0.05 every 24h)
 
 **Resources**:
+
 - [Hardhat - Getting Started](https://hardhat.org/hardhat-runner/docs/getting-started) (Quick Start section, beginner-friendly).
 - [MetaMask - Getting Started](https://docs.metamask.io/guide/getting-started.html) (step-by-step guide).
 - [freeCodeCamp Node.js for Beginners](https://www.freecodecamp.org/news/node-js-tutorial-for-beginners/) (for npm troubleshooting).

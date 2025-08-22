@@ -21,12 +21,6 @@ Kicking off my `SolidityJourney2025`, I revisited the fundamentals of Node.js to
 - Built a basic HTTP server that responds with a message when accessed.
 - Took notes on key concepts (modules, npm, events) to reinforce learning.
 
-## GitHub Contributions 📂
-
-- Initialized the `/week1/` folder in my `SolidityJourney2025` repository.
-- Added `/week1/notes/day1_nodeJS_update` folder with my scripts / notes from this day of refreshing.
-- Updated the main README with a "Week 1" section summarizing my Node.js refresher.
-
 ## Resources 📖
 
 - [Node JS Tutorial For Beginners 2025](https://www.youtube.com/watch?v=yGl3f0xTl_0) (GreatStack, YouTube).

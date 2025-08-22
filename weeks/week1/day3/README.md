@@ -74,9 +74,6 @@
       - Call `getCount` (no gas fee, as it’s `view`) to see the current `count`.
     - Take a screenshot of the deployment (Remix’s "Deployed Contracts" section) or MetaMask transaction confirmation.
 
-5.  **Document the Process**:
-    - Create a Markdown file `/week1/notes/Counter.md` in your `SolidityJourney2025` repository.
-
 **Resources**:
 
 - [Remix IDE - Quick Start](https://remix-ide.readthedocs.io/en/latest/create_deploy.html) (beginner-friendly guide).
@@ -137,10 +134,6 @@
      - Call `publicVar` directly (returns 1).
      - Try accessing `privateVar` directly (should fail due to `private`).
      - Call `setPrivateVar(5)` and `getPrivateVar` to confirm the value updates to 3.
-
-3. **Document Types and Visibility**:
-
-   - Create `/week1/notes/visibility.md` in your repository.
 
 **Resources**:
 

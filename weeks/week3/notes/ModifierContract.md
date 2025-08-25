@@ -1,6 +1,11 @@
 ## Overview 📝
 
 Created a ModifierExample contract with all we learned on this day.
+Modifier can be used with or without parameters.
+Modifier can be called before or after a function.
+
+View Function : Function to get / show value of a data, without transaction.
+Pure Function : Function to execute code without transaction or without using data of the contract.
 
 ### Deployed contract
 

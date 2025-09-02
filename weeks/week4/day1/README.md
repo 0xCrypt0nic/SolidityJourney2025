@@ -2,21 +2,16 @@
 
 **Goal**: Learn Solidity inheritance and interfaces using CryptoZombies and documentation to create modular contracts.
 
-### CryptoZombies Lesson
+### SolidityByExample Lesson
 
-**CryptoZombies Lesson 6: Inheritance and External Contracts**:
+**Inheritance / Interface Lesson**:
 
-- Access [CryptoZombies](https://cryptozombies.io/) and start Lesson 6.
+- Access [SolidityByExample](https://solidity-by-example.org/inheritance/) and start Lesson Inheritance.
 - Learn:
-  - **Inheritance**: Extend contracts with `is` keyword (e.g., `contract SuperZombie is Zombie` to inherit properties and functions).
-  - **Interfaces**: Define function signatures for external calls (e.g., `interface Token { function transfer(address to, uint amount) external; }`).
+  - **Inheritance**: Extend contracts with `is` keyword.
+  - **Interfaces**: Define function signatures for external calls.
   - **Virtual/Override**: Use `virtual` in parent functions and `override` in child to customize behavior (e.g., override a function to add logic).
   - **Super**: Call parent functions with `super` (e.g., `super.updateLevel()` in an overridden function).
-- Complete all exercises, such as:
-  - Create a base `Zombie` contract with functions like `feed`.
-  - Inherit from it in `SuperZombie` and override `feed` to add extra power.
-  - Use an interface to interact with an external contract (e.g., call a token transfer).
-- Take screenshots of completed exercises showing code and success messages in the CryptoZombies editor.
 
 ### Solidity Documentation - Inheritance & Interfaces
 

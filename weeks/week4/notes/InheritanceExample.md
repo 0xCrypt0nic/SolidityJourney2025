@@ -1,5 +1,9 @@
 ## Overview 📝
 
+Work with Interface, Inheritance, Virtual Functions, Override Functions, `super`keyworkd.
+Write contract on remix and play with it.
+Contract file : [InheritanceExample.sol](../day1/InheritanceExample.sol)
+
 ### Deployed contract
 
 - DerivedCounter contract : [0x14d95a4005C45c6D493466972ee41DD6Aa682FCA](https://sepolia.etherscan.io/address/0x14d95a4005c45c6d493466972ee41dd6aa682fca)

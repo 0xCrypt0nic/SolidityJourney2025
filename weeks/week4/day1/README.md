@@ -107,7 +107,7 @@
   ```
 
 - Compile with Solidity version 0.8.x.
-- Deploy `DerivedCounter` on Sepolia via MetaMask (ensure test ETH from [Sepolia Faucet](https://sepoliafaucet.com/)).
+- Deploy `DerivedCounter` on Sepolia via MetaMask.
 - Test:
   - Call `increment` (count increases by 2 due to override).
   - Call `getCount` (view, returns current count).

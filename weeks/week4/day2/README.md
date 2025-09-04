@@ -84,10 +84,8 @@
   ```
 
 - Compile with Solidity version 0.8.x.
-- Deploy `SuperZombie` on Sepolia via MetaMask (ensure test ETH from [Sepolia Faucet](https://sepoliafaucet.com/)).
+- Deploy `SuperZombie` on Sepolia.
 - Test:
   - Call `createZombie("SuperGrok", 5)` from owner wallet (creates zombie with level 6 due to override).
   - Call `getZombie(0)` to verify name and level.
   - Call `upgradeLevel(0)` from owner (level becomes 7).
-  - Try `createZombie` from non-owner wallet (fails with "Not owner").
-- Take a screenshot of Remix interface showing deployment, test results, or override behavior.

@@ -82,10 +82,7 @@
   ```
 
 - Compile with Solidity version 0.8.x.
-- Deploy `LibraryExample` on Sepolia via MetaMask (ensure test ETH from [Sepolia Faucet](https://sepoliafaucet.com/)).
+- Deploy `LibraryExample` on Sepolia.
 - Test:
   - Call `addValue(50)` (value becomes 150).
   - Call `subValue(30)` (value becomes 120).
-  - Test overflow: Call `addValue(type(uint).max - 100 + 1)` (fails with "Addition overflow").
-  - Test underflow: Call `subValue(121)` (fails with "Subtraction overflow").
-- Take a screenshot of Remix interface showing deployment, test results, or overflow error.

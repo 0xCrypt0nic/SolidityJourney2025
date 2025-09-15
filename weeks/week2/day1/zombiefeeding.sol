@@ -1,4 +1,5 @@
-pragma solidity ^0.5.00;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.00;
 
 import "./zombiefactory.sol";
 

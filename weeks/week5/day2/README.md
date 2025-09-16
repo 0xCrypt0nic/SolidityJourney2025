@@ -47,7 +47,7 @@
 
 **Create and Test Contract**:
 
-- In your Hardhat project (`blockchain-training`), create `/week5/contracts/Bank.sol`:
+- In your Hardhat project (`blockchain-training`), create `contracts/Bank.sol`:
 
   ```
   // SPDX-License-Identifier: MIT
@@ -83,7 +83,7 @@
   }
   ```
 
-- **Deploy Script**: Create `/week5/scripts/deploy.ts`:
+- **Deploy Script**: Create `scripts/deploy.ts`:
 
   ```typescript
   import { ethers } from "hardhat";
@@ -101,7 +101,7 @@
   });
   ```
 
-- **Test Script**: Create `/week5/test/Bank.test.ts`:
+- **Test Script**: Create `test/Bank.test.ts`:
 
   ```typescript
   import { expect } from "chai";

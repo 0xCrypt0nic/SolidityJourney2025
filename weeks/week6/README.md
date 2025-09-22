@@ -21,7 +21,7 @@ Verify `.env` is in `.gitignore` to protect `PRIVATE_KEY`.
 
 **Resources**:
 
-- [OpenZeppelin - ERC20](https://docs.openzeppelin.com/contracts/5.x/erc20) (ERC-20 documentation).
+- [OpenZeppelin - ERC20](https://docs.openzeppelin.com/contracts/5.x/api/token/erc20) (ERC-20 documentation).
 - [Solidity by Example - ERC20](https://solidity-by-example.org/app/erc20/) (basic implementation).
 - [EIP-20: ERC-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20) (official standard).
 

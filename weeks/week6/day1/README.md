@@ -6,7 +6,7 @@
 
 **Read OpenZeppelin ERC-20 Docs**:
 
-- Visit [OpenZeppelin - ERC20](https://docs.openzeppelin.com/contracts/5.x/erc20) and study:
+- Visit [OpenZeppelin - ERC20](https://docs.openzeppelin.com/contracts/5.x/api/token/erc20) and study:
   - **ERC-20 Standard**: Defines a fungible token interface (e.g., `transfer`, `approve`, `balanceOf`) for interoperability.
   - **Key Functions**:
     - `totalSupply()`: Returns total token supply.

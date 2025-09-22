@@ -47,5 +47,3 @@
   - Call `transferFrom(deployer_address, receiver_address, 50 * 10^18)` from spender (transfers 50 GROK).
   - Call `mint(receiver_address, 200)` from owner (mints 200 GROK).
   - Call `mint` from non-owner (fails with `Unauthorized`).
-- **Verify**:
-  - Check deployment on [Sepolia Etherscan](https://sepolia.etherscan.io/) using the contract address.

@@ -12,4 +12,3 @@ Deploy it with GrokToken contract address.
 - Call getTokenBalance method :
 
 ![Result ok](./img/TokenBalance.png)
-

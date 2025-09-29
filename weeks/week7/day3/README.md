@@ -17,8 +17,9 @@
       const tokenAddress = "0xYOUR_GROK_TOKEN_ADDRESS"; // From Week 6
       const TokenInteractor = await ethers.getContractFactory("TokenInteractor");
       const tokenInteractor = await TokenInteractor.deploy(tokenAddress);
-      await tokenInteractor.deployed();
-      console.log(`TokenInteractor deployed to: ${tokenInteractor.address}`);
+      await tokenInteractor.waitForDeployment();
+      const TIDeployedAddress = await tokenInteractor.getAddress();
+      console.log(`TokenInteractor deployed to: ${TIDeployedAddress}`);
   }
 
   main().catch((error) => {

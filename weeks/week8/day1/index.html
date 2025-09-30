@@ -12,141 +12,105 @@
 
 <body>
     <div>
+        <h3>Before action, send GROK token to contract : 0xdC96a5eaF7e60F563176016309C5B3C3D0b9Ed8D</h3>
+    </div>
+    <div>
         <button id="connect">Connect MetaMask</button>
-        <button id="getBalance">Get Token Balance</button>
-        <button id="transfer">Transfer 50 GROK</button>
+        <button id="getBalance" disabled>Get Token Balance</button>
+        <button id="getContractBalance" disabled>Get Contract Token Balance</button>
+        <button id="transfer" disabled>Receive From Contract 50 GROK</button>
         <p id="result"></p>
     </div>
 
     <script>
+
+        const btnConnect = document.getElementById('connect');
+        const btnTokenBalance = document.getElementById('getBalance');
+        const btnContractBalance = document.getElementById('getContractBalance');
+        const btnTransfer = document.getElementById('transfer');
+        const txtResult = document.getElementById('result');
+
         let web3;
         let contract;
         const tokenInteractorAddress = '0xdC96a5eaF7e60F563176016309C5B3C3D0b9Ed8D';
         const ABI = [
-            {
-                "inputs": [
-                    {
-                        "internalType": "address",
-                        "name": "_token",
-                        "type": "address"
-                    }
-                ],
-                "stateMutability": "nonpayable",
-                "type": "constructor"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "address",
-                        "name": "spender",
-                        "type": "address"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "amount",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "approveSpender",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "address",
-                        "name": "account",
-                        "type": "address"
-                    }
-                ],
-                "name": "getTokenBalance",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "owner",
-                "outputs": [
-                    {
-                        "internalType": "address",
-                        "name": "",
-                        "type": "address"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "tokenAddress",
-                "outputs": [
-                    {
-                        "internalType": "address",
-                        "name": "",
-                        "type": "address"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "address",
-                        "name": "to",
-                        "type": "address"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "amount",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "transferToken",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            }
+            { "inputs": [{ "internalType": "address", "name": "_token", "type": "address" }], "stateMutability": "nonpayable", "type": "constructor" },
+            { "inputs": [], "name": "TransferFailed", "type": "error" },
+            { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "getTokenBalance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
+            { "inputs": [{ "internalType": "address", "name": "to", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transferToken", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+            { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approveSpender", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+            { "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" },
+            { "inputs": [], "name": "tokenAddress", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }
         ];
 
-        document.getElementById('connect').onclick = async () => {
+        btnConnect.onclick = async () => {
             if (window.ethereum) {
                 web3 = new Web3(window.ethereum);
                 await window.ethereum.request({ method: 'eth_requestAccounts' });
                 contract = new web3.eth.Contract(ABI, tokenInteractorAddress);
-                document.getElementById('result').innerHTML = 'Connected!';
+
+                btnConnect.innerHTML = 'Connected!';
+                btnTokenBalance.disabled = false;
+                btnContractBalance.disabled = false;
+                btnTransfer.disabled = false;
             } else {
-                document.getElementById('result').innerHTML = 'MetaMask not found!';
+                btnTokenBalance.disabled = true;
+                btnContractBalance.disabled = true;
+                btnTransfer.disabled = true;
             }
         };
 
-        document.getElementById('getBalance').onclick = async () => {
+        btnTokenBalance.onclick = async () => {
             if (contract) {
-                const accounts = await web3.eth.getAccounts();
-                const balance = await contract.methods.getTokenBalance(accounts[0]).call();
-                document.getElementById('result').innerHTML = `Balance: ${web3.utils.fromWei(balance, 'ether')} GROK`;
-            }
-            else {
-                document.getElementById('result').innerHTML = 'No Contract connected';
+                try {
+                    const accounts = await web3.eth.getAccounts();
+                    txtResult.innerHTML = `Balance of ${accounts[0]} : ${web3.utils.fromWei(await contract.methods.getTokenBalance(accounts[0]).call(), 'ether')} GROK`;
+                } catch (error) {
+                    console.error('Error in getBalance:', error);
+                    txtResult.innerHTML = 'Error fetching balance';
+                }
+            } else {
+                txtResult.innerHTML = 'No Contract connected';
+                btnTokenBalance.disabled = true;
+                btnContractBalance.disabled = true;
+                btnTransfer.disabled = true;
+                btnFund.disabled = true;
             }
         };
 
-        document.getElementById('transfer').onclick = async () => {
+        btnContractBalance.onclick = async () => {
             if (contract) {
-                const accounts = await web3.eth.getAccounts();
-                const amount = web3.utils.toWei('50', 'ether');
-                await contract.methods.transferToken(accounts[0], amount).send({ from: accounts[0] });
-                document.getElementById('result').innerHTML = 'Transfer successful';
+                try {
+                    txtResult.innerHTML = `Balance of tokenInteractorContract : ${web3.utils.fromWei(await contract.methods.getTokenBalance(tokenInteractorAddress).call(), 'ether')} GROK`
+                } catch (error) {
+                    console.error('Error in getBalance:', error);
+                    txtResult.innerHTML = 'Error fetching balance';
+                }
             } else {
-                document.getElementById('result').innerHTML = 'No Contract connected';
+                txtResult.innerHTML = 'No Contract connected';
+                btnTokenBalance.disabled = true;
+                btnContractBalance.disabled = true;
+                btnTransfer.disabled = true;
+            }
+        };
+
+        btnTransfer.onclick = async () => {
+            if (contract) {
+                try {
+                    const accounts = await web3.eth.getAccounts();
+                    const amount = web3.utils.toWei('50', 'ether');
+                    await contract.methods.transferToken(accounts[0], amount).send({ from: accounts[0] });
+                    txtResult.innerHTML = 'Transfer successful';
+                }
+                catch (error) {
+                    console.error('Error in transfer:', error);
+                    txtResult.innerHTML = 'Error on transfer';
+                }
+            } else {
+                txtResult.innerHTML = 'No Contract connected';
+                btnTokenBalance.disabled = true;
+                btnContractBalance.disabled = true;
+                btnTransfer.disabled = true;
             }
         }
     </script>

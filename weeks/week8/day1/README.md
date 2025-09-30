@@ -104,4 +104,3 @@
   - "MetaMask not found"? Install MetaMask extension.
   - "ABI not found"? Copy ABI from Hardhat (`artifacts/contracts/TokenInteractor.sol/TokenInteractor.json`) or Remix.
   - "Provider not connected"? Switch MetaMask to Sepolia.
-- Take a screenshot of the frontend showing connected MetaMask or balance display.

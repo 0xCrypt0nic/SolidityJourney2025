@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting DApp</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.16.0/web3.min.js"
+        integrity="sha512-EcohdIzTaj7kvP0ymM3RiKxanvfwGvjsrmouFROeLbtIXNXgQBDUee6wrf7L4bgwSiXGZRLi2AlDkOQ4WrCKYg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <button id="connect">Connect MetaMask</button>
+    <h3>Candidates</h3>
+    <div id="candidates"></div>
+    <div>
+        <br>
+        <button id="voteAlice" disabled>Vote Alice</button>
+        <button id="voteBob" disabled>Vote Bob</button>
+    </div>
+    <p id="result"></p>
+
+    <script>
+        const btnConnect = document.getElementById('connect');
+        const btnAlice = document.getElementById('voteAlice');
+        const btnBob = document.getElementById('voteBob');
+        const txtResult = document.getElementById('result');
+        const candidates = document.getElementById('candidates');
+
+        let web3;
+        let contract;
+        const votingAddress = "0x027183dA726d16BA5EE01eB599Ea0F048C14b522";
+        const ABI = [
+            {
+                "inputs": [
+                    {
+                        "internalType": "string[]",
+                        "name": "candidateNames",
+                        "type": "string[]"
+                    }
+                ],
+                "stateMutability": "nonpayable",
+                "type": "constructor"
+            },
+            {
+                "anonymous": false,
+                "inputs": [
+                    {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "voter",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": false,
+                        "internalType": "uint256",
+                        "name": "candidateId",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "VoteCast",
+                "type": "event"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "candidates",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "voteCount",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_candidateId",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "getCandidate",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "name": "hasVoted",
+                "outputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_candidateId",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "vote",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            }
+        ];
+
+        btnConnect.onclick = async () => {
+            if (window.ethereum) {
+                web3 = new Web3(window.ethereum);
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                contract = new web3.eth.Contract(ABI, votingAddress);
+                loadCandidates();
+                btnConnect.innerHTML = 'Connected!';
+                btnAlice.disabled = false;
+                btnBob.disabled = false;
+            } else {
+                txtResult.innerHTML = 'Problem detected during connection';
+                btnAlice.disabled = true;
+                btnBob.disabled = true;
+            }
+        };
+
+        async function loadCandidates() {
+            for (i = 0; i < 2; i++) {
+                let user = await contract.methods.getCandidate(i).call();
+                if (i > 0) candidates.innerHTML += `<br/>`;
+                candidates.innerHTML += `
+                    ${user[0]}: ${user[1]} votes.
+                `;
+            }
+        }
+
+        btnAlice.onclick = async () => {
+            if (contract) {
+                const accounts = await web3.eth.getAccounts();
+                try {
+                    await contract.methods.vote(0).send({ from: accounts[0] }).on('receipt', (rec) => {
+                        console.log(rec);
+                        loadCandidates();
+                        txtResult.innerHTML = 'Voted for Alice !';
+                    })
+                }
+                catch (error) {
+                    console.log(error);
+                }
+            } else {
+                txtResult.innerHTML = 'Problem detected during connection';
+                btnAlice.disabled = true;
+                btnBob.disabled = true;
+            }
+        };
+
+        btnBob.onclick = async () => {
+            if (contract) {
+                const accounts = await web3.eth.getAccounts();
+                await contract.methods.vote(1).send({ from: accounts[0] }).on('receipt', () => {
+                    loadCandidates();
+                    txtResult.innerHTML = 'Voted for Bob !';
+                })
+            } else {
+                txtResult.innerHTML = 'Problem detected during connection';
+                btnAlice.disabled = true;
+                btnBob.disabled = true;
+            }
+        };
+    </script>
+</body>
+
+</html>

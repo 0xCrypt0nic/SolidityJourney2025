@@ -30,7 +30,7 @@
 
         let web3;
         let contract;
-        const votingAddress = "0x027183dA726d16BA5EE01eB599Ea0F048C14b522";
+        const votingAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
         const ABI = [
             {
                 "inputs": [
@@ -174,6 +174,7 @@
             if (contract) {
                 try {
                     const accounts = await web3.eth.getAccounts();
+                    txtResult.innerHTML = `Address connected: ${accounts[0]}`;
                     await contract.methods.vote(0).send({ from: accounts[0] });
                     loadCandidates();
                     txtResult.innerHTML = 'Voted for Alice!';

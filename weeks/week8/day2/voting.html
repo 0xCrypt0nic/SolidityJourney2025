@@ -172,18 +172,16 @@
 
         btnAlice.onclick = async () => {
             if (contract) {
-                const accounts = await web3.eth.getAccounts();
                 try {
-                    await contract.methods.vote(0).send({ from: accounts[0] }).on('receipt', (rec) => {
-                        console.log(rec);
-                        loadCandidates();
-                        txtResult.innerHTML = 'Voted for Alice !';
-                    })
+                    const accounts = await web3.eth.getAccounts();
+                    await contract.methods.vote(0).send({ from: accounts[0] });
+                    loadCandidates();
+                    txtResult.innerHTML = 'Voted for Alice!';
+                } catch (error) {
+                    txtResult.innerHTML = ' Already Voted';
                 }
-                catch (error) {
-                    console.log(error);
-                }
-            } else {
+            }
+            else {
                 txtResult.innerHTML = 'Problem detected during connection';
                 btnAlice.disabled = true;
                 btnBob.disabled = true;
@@ -192,12 +190,16 @@
 
         btnBob.onclick = async () => {
             if (contract) {
-                const accounts = await web3.eth.getAccounts();
-                await contract.methods.vote(1).send({ from: accounts[0] }).on('receipt', () => {
+                try {
+                    const accounts = await web3.eth.getAccounts();
+                    await contract.methods.vote(1).send({ from: accounts[0] });
                     loadCandidates();
-                    txtResult.innerHTML = 'Voted for Bob !';
-                })
-            } else {
+                    txtResult.innerHTML = 'Voted for Bob!';
+                } catch (error) {
+                    txtResult.innerHTML = ' Already Voted';
+                }
+            }
+            else {
                 txtResult.innerHTML = 'Problem detected during connection';
                 btnAlice.disabled = true;
                 btnBob.disabled = true;

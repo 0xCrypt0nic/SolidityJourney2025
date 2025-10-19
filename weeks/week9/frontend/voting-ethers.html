@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voting DApp with ethers.js</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.15.0/ethers.min.js"
-        integrity="sha512-z21Tx+X8QmD81WlJPjWLKo7G0LiuPheO1MA9Rc3+XLGTz04EKXXjXyeQNJWRYUZaru+eHpCM49vkWw4j1S5OWg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,16 +24,28 @@
 
 <body>
     <button id="connect">Connect MetaMask</button>
+    <p id="Connect_Info"></p>
+    <hr>
+    <br />
     <h3>Candidates</h3>
     <div id="candidates"></div>
-    <button id="voteAlice">Vote Alice</button>
-    <button id="voteBob">Vote Bob</button>
+    <button id="voteAlice" disabled>Vote Alice</button>
+    <button id="voteBob" disabled>Vote Bob</button>
     <p id="result"></p>
 
-    <script>
+    <script type="module">
+        import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@5.6.9/dist/ethers.esm.min.js";
         let provider;
         let signer;
         let contract;
+
+        const btnConnect = document.getElementById('connect');
+        const txtResult = document.getElementById('result');
+        const panelCandidates = document.getElementById('candidates');
+        const txtConnectInfo = document.getElementById('Connect_Info');
+        const btnAlice = document.getElementById('voteAlice');
+        const btnBob = document.getElementById('voteBob');
+
         const votingAddress = "0x027183dA726d16BA5EE01eB599Ea0F048C14b522";
         const ABI = [
             {
@@ -105,12 +114,12 @@
                 "outputs": [
                     {
                         "internalType": "string",
-                        "name": "",
+                        "name": "name",
                         "type": "string"
                     },
                     {
                         "internalType": "uint256",
-                        "name": "",
+                        "name": "voteCount",
                         "type": "uint256"
                     }
                 ],
@@ -151,7 +160,52 @@
             }
         ];
 
+        btnConnect.onclick = async () => {
+            if (window.ethereum) {
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                await provider.send("eth_requestAccounts", []);
 
+                // Network Checking
+                const network = await provider.getNetwork();
+                console.log("Current network:", network.name, network.chainId);
+
+                // Sepolia chainId = 11155111
+                if (network.chainId !== 11155111) {
+                    txtConnectInfo.innerHTML = `⚠️ Please switch to Sepolia network (current: ${network.name})`;
+                    return;
+                }
+
+                signer = provider.getSigner();
+                contract = new ethers.Contract(votingAddress, ABI, signer);
+                loadCandidates();
+                txtConnectInfo.innerHTML = `Connected with: ${await signer.getAddress()}`;
+
+                // Button Visibility
+                btnConnect.disabled = true;
+                btnAlice.disabled = false;
+                btnBob.disabled = false;
+            } else {
+                txtConnectInfo.innerHTML = 'MetaMask not found';
+            }
+        };
+
+        async function loadCandidates() {
+            if (contract) {
+                try {
+                    const candidate0 = await contract.getCandidate(0);
+                    const candidate1 = await contract.getCandidate(1);
+                    console.log(candidate0);
+                    document.getElementById("candidates").innerHTML = `
+                            ${candidate0.name} : ${candidate0.voteCount}<br>
+                            ${candidate1.name} : ${candidate1.voteCount}
+                      `;
+                }
+                catch (error) {
+                    txtResult.innerHTML = 'Error Loading candidates';
+                    console.error(error);
+                }
+            }
+        }
     </script>
 </body>
 

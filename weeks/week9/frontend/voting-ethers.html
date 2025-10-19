@@ -178,12 +178,17 @@
                 signer = provider.getSigner();
                 contract = new ethers.Contract(votingAddress, ABI, signer);
                 loadCandidates();
-                txtConnectInfo.innerHTML = `Connected with: ${await signer.getAddress()}`;
+                const addressConnected = await signer.getAddress();
+                const hasVoted = await contract.hasVoted(addressConnected);
+                txtConnectInfo.innerHTML = `
+                    Connected with: ${addressConnected}<br>
+                    ${hasVoted ? "You've already voted." : "You can vote now"}
+                    `;
 
                 // Button Visibility
                 btnConnect.disabled = true;
-                btnAlice.disabled = false;
-                btnBob.disabled = false;
+                btnAlice.disabled = hasVoted;
+                btnBob.disabled = hasVoted;
             } else {
                 txtConnectInfo.innerHTML = 'MetaMask not found';
             }
@@ -194,10 +199,11 @@
                 try {
                     const candidate0 = await contract.getCandidate(0);
                     const candidate1 = await contract.getCandidate(1);
-                    console.log(candidate0);
                     document.getElementById("candidates").innerHTML = `
                             ${candidate0.name} : ${candidate0.voteCount}<br>
                             ${candidate1.name} : ${candidate1.voteCount}
+                            <br><br>
+                            Actual Winner : ${candidate0.voteCount > candidate1.voteCount ? candidate0.name : candidate1.name}
                       `;
                 }
                 catch (error) {
@@ -206,6 +212,56 @@
                 }
             }
         }
+
+        btnAlice.onclick = async () => {
+            if (contract) {
+                try {
+                    const tx = await contract.vote(0, { gasLimit: 100000 });
+                    await tx.wait();
+                    loadCandidates();
+                    txtResult.innerText = "Voted for Alice !";
+
+                    // Button Visibility
+                    btnAlice.disabled = true;
+                    btnBob.disabled = true;
+                } catch (error) {
+                    let errorMessage = "Transaction failed: Unknown error";
+                    if (error.reason) {
+                        errorMessage = `Transaction failed: ${error.reason}`;
+                    } else if (error.message) {
+                        errorMessage = `Transaction failed: ${error.message}`;
+                    }
+                    document.getElementById("result").innerHTML = errorMessage;
+                    console.error(error);
+                }
+            }
+        }
+
+        btnBob.onclick = async () => {
+            if (contract) {
+                try {
+                    const tx = await contract.vote(1, { gasLimit: 100000 });
+                    await tx.wait();
+                    loadCandidates();
+                    txtResult.innerText = "Voted for Bob !";
+
+                    // Button Visibility
+                    btnAlice.disabled = true;
+                    btnBob.disabled = true;
+                } catch (error) {
+                    let errorMessage = "Transaction failed: Unknown error";
+                    if (error.reason) {
+                        errorMessage = `Transaction failed: ${error.reason}`;
+                    } else if (error.message) {
+                        errorMessage = `Transaction failed: ${error.message}`;
+                    }
+                    document.getElementById("result").innerHTML = errorMessage;
+                    console.error(error);
+                }
+            }
+        }
+
+
     </script>
 </body>
 

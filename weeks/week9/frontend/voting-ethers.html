@@ -203,8 +203,8 @@
                             ${candidate0.name} : ${candidate0.voteCount}<br>
                             ${candidate1.name} : ${candidate1.voteCount}
                             <br><br>
-                            Actual Winner : ${candidate0.voteCount > candidate1.voteCount ? candidate0.name : candidate1.name}
-                      `;
+                            Actual Winner: ${candidate0.voteCount > candidate1.voteCount ? candidate0.name : candidate1.name}
+                `;
                 }
                 catch (error) {
                     txtResult.innerHTML = 'Error Loading candidates';
@@ -227,9 +227,9 @@
                 } catch (error) {
                     let errorMessage = "Transaction failed: Unknown error";
                     if (error.reason) {
-                        errorMessage = `Transaction failed: ${error.reason}`;
+                        errorMessage = `Transaction failed: ${error.reason} `;
                     } else if (error.message) {
-                        errorMessage = `Transaction failed: ${error.message}`;
+                        errorMessage = `Transaction failed: ${error.message} `;
                     }
                     document.getElementById("result").innerHTML = errorMessage;
                     console.error(error);
@@ -251,7 +251,7 @@
                 } catch (error) {
                     let errorMessage = "Transaction failed: Unknown error";
                     if (error.reason) {
-                        errorMessage = `Transaction failed: ${error.reason}`;
+                        errorMessage = `Transaction failed: ${error.reason} `;
                     } else if (error.message) {
                         errorMessage = `Transaction failed: ${error.message}`;
                     }
